@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\FirstController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/about', [FirstController::class, 'about']);
 
-Route::get('/index', [FirstController::class, 'index']);
+Route::get('/', [FirstController::class, 'index']);
 
 Route::get('/article/{id}', [FirstController::class, 'article']);
 
+Route::get("/photos/create", [FirstController::class, "create"])->middleware("auth");
+
+Route::post("/photos/store", [FirstController::class, "store"])->middleware("auth");
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get("/user/{id}", [FirstController::class, "user"]);
+
+Route::get("/changesuivi/{id} ", [FirstController::class, "follow"]);
