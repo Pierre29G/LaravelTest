@@ -19,13 +19,43 @@ public function run() {
         DB::table('users')->insert([
             'name' => "utilisateur1",
             'email' => "utilisateur1@gmail.com",
-            'password' => bcrypt("azerty")
+            'password' => bcrypt("azerty"),
+            'imgUrl' => "/userImg/1.jpg"
         ]);
 
         DB::table('users')->insert([
             'name' => "utilisateur2",
             'email' => "utilisateur2@gmail.com",
-            'password' => bcrypt("azerty")
+            'password' => bcrypt("azerty"),
+            'imgUrl' => "/userImg/2.jpg"
+        ]);
+    
+        DB::table('users')->insert([
+            'name' => "Pierre",
+            'email' => "pierre29g@gmail.com",
+            'password' => bcrypt("pierre"),
+            'imgUrl' => "/userImg/3.jpg"
+        ]);
+    
+        DB::table('artists')->insert([
+            'name' => "Pinocchiop",
+            'imgUrl' => "/artistImg/1.jpg"
+        ]);
+    
+        DB::table('songs')->insert([
+            'name' => "Common World Domination",
+            'genre' => "Jpop",
+            'artistId' => "1",
+            'url' => "/music/1.mp3",
+            'imgUrl' => "/songImg/domination.jpg"
+        ]);
+    
+        DB::table('songs')->insert([
+            'name' => "Nina",
+            'genre' => "Jpop",
+            'artistId' => "1",
+            'url' => "/music/2.mp3",
+            'imgUrl' => "/songImg/nina.jpg"
         ]);
 
         for ($i = 1; $i <= 6; $i++) {

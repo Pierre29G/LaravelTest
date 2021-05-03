@@ -1,13 +1,25 @@
+
 @extends("layouts.general")
 
 @section("content")
-    <h1>Index</h1>
-    @foreach($photos as $p)
+    <h2>Dernières sorties</h2>
+    @foreach($song as $p)
+    <?php /*$art = \App\Models\Song::find($p)->artist;*/ ?>
             <div>
-            <img src="{{$p->url}}" alt="{{$p->title}}" />
-            <span>{{$p->title}} -- {{$p->note}}</span>
-            <a href="/user/{{$p->user->id}}">{{$p->user->name}}</a>
+            <img src="{{$p->imgurl}}" alt="{{$p->name}}" /><br>
+            <span>{{$p->artistId}}</span><br>
+            <a href="/song/{{$p->id}}">{{$p->name}}</a>
             </div>
+    @endforeach
+    @guest
+    <h2>écouté dernièrement</h2>
 
+    @endguest
+    <h2>Mes artistes favoris</h2>
+    @foreach($artist as $p)
+            <div>
+            <img src="{{$p->imgurl}}" alt="{{$p->name}}" /><br>
+            <a href="/artist/{{$p->id}}">{{$p->name}}</a>
+            </div>
     @endforeach
 @endsection

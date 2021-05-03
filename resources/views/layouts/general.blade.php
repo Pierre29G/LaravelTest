@@ -1,6 +1,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <main>
     <h1>ceci est général</h1>
+    @yield("content")
     <a href="/">index</a>
     <a href="/about">about</a>
     @guest
@@ -35,5 +36,4 @@
                                 <a href="/photos/create">ajouter une photo</a>
                             </li>
                         @endguest
-    @yield("content")
 </main>

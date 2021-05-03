@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Song;
+use App\Models\Artist;
+use Illuminate\Support\Facades\Auth;
 
 class FirstController extends Controller
 {
      public function index() {
-        $photos = \App\Models\Photo::all(); // SELECT * from photos // SELECT * from photos
+        $song = \App\Models\Song::all(); // SELECT * from song // SELECT * from song
+        $artist = \App\Models\Artist::all();// SELECT * from artist // SELECT * from artist
 
-
-        return view("firstcontroller.index", ["photos" => $photos]);
+        return view("firstcontroller.index", ["song" => $song], ["artist" => $artist]);
     }
 
     public function about() {
@@ -27,10 +30,20 @@ class FirstController extends Controller
     }
     
     public function store(Request $request) {
+        $request->validate([
+            'title' => 'required|min:3|max:255',
+            'note' => 'numeric|min:0|max:20',
+            'image' => 'file|mimes:jpg,bmp,png'
+        ]);
+
         $p = new Photo();
         $p->title = $request->input("title");
-        $p->url = $request->input("url");
+
+        $name = $request->file("image")->hashName();
+        $request->file("image")->move("images/uploads/".Auth::id(), $name);
+        $p->url = "/images/uploads/".Auth::id()."/$name";
         $p->note = $request->input("note");
+        $p->user_id = Auth::id();
         $p->save(); // INSERT .....
         return redirect("/");
     }
@@ -40,7 +53,7 @@ class FirstController extends Controller
         return view("firstcontroller.user", ["user" => $user]);
     }
     
-        public function changesuivi($id) {
+        public function follow($id) {
         $user = User::findOrFail($id);
         Auth::user()->IFollowThem()->toggle($id);
         return back();
