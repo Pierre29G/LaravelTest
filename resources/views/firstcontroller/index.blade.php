@@ -4,10 +4,10 @@
 @section("content")
     <h2>Dernières sorties</h2>
     @foreach($song as $p)
-    <?php /*$art = \App\Models\Song::find($p)->artist;*/ ?>
+    <?php $art = \App\Models\Song::find($p->artist_id)->artist; ?>
             <div>
             <img src="{{$p->imgurl}}" alt="{{$p->name}}" /><br>
-            <span>{{$p->artistId}}</span><br>
+            <span>{{$art->name}}</span><br>
             <a href="/song/{{$p->id}}">{{$p->name}}</a>
             </div>
     @endforeach

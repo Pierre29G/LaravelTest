@@ -2,8 +2,8 @@
 <main>
     <h1>ceci est général</h1>
     @yield("content")
-    <a href="/">index</a>
-    <a href="/about">about</a>
+    <a href="/">Accueil</a>
+    <a href="/playlist">Playlist</a>
     @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -17,12 +17,11 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                <a href="/amis">Mes amis</a>    
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/user/{{ Auth::user()->id}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    Profil
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -32,8 +31,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                </div>
-                                <a href="/photos/create">ajouter une photo</a>
-                            </li>
+
                         @endguest
 </main>

@@ -16,7 +16,12 @@ class FirstController extends Controller
 
         return view("firstcontroller.index", ["song" => $song], ["artist" => $artist]);
     }
-
+    
+    public function artist($id) {
+        $artist = Artist::findOrFail($id);
+        return view("firstcontroller.artist", ["artist" => $artist]);
+    }
+    
     public function about() {
         return view("FirstController.about");
     }

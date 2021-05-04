@@ -9,8 +9,9 @@ class Artist extends Model
 {
     use HasFactory;
     
-    public function user() {
-        // SELECT * FROM users WHERE id = $this->user_id
-        return $this->belongsTo("App\Models\User", "artistId");
+    public function songs() {
+        // SELECT * FROM photos WHERE user_id = $this->id
+        return $this->hasMany("App\Models\Song");
     }
+    
 }

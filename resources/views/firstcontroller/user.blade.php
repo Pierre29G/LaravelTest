@@ -1,7 +1,8 @@
 @extends("layouts.general")
 
 @section("content")
-    <h1>Bonjour, {{$user->name}}</h1>
+    <img src="{{$user->imgurl}}" alt="{{$user->name}}" />
+    <h1>{{$user->name}}</h1>
     <p>Follow {{$user->IFollowThem()->count()}} personnes</p>
     <p>Followed by {{$user->theyFollowMe()->count()}} personnes</p>
 
@@ -16,10 +17,17 @@
 
         @endif
     @endauth
-    @foreach($user->photos as $p)
+
+    @if(Auth::id() != $user->id)
+    <h2>Playlists créées</h2>
+    @else
+    <h2>Mes Playlist</h2>
+    @endif
+
+    @foreach($user->playlists as $p)
             <div>
-            <img src="{{$p->url}}" alt="{{$p->title}}" />
-            <span>{{$p->title}} -- {{$p->note}}</span>
+            <img src="{{$p->imgurl}}" alt="{{$p->name}}" />
+            <span>{{$p->name}} -- {{$p->description}}</span>
             </div>
 
     @endforeach

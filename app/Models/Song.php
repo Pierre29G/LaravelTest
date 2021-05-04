@@ -11,11 +11,11 @@ class Song extends Model
     
     public function user() {
         // SELECT * FROM users WHERE id = $this->user_id
-        return $this->belongsTo("App\Models\User", "artistId");
+        return $this->belongsTo("App\Models\User");
     }
     
         public function artist()
     {
-        return $this->hasOne(Artist::class, 'artistId');
+        return $this->hasOne(Artist::class, 'id');
     }
 }

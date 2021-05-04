@@ -42,10 +42,15 @@ public function run() {
             'imgUrl' => "/artistImg/1.jpg"
         ]);
     
+        DB::table('artists')->insert([
+            'name' => "Billie Eilish",
+            'imgUrl' => "/artistImg/2.jpg"
+        ]);
+    
         DB::table('songs')->insert([
             'name' => "Common World Domination",
             'genre' => "Jpop",
-            'artistId' => "1",
+            'artist_id' => "1",
             'url' => "/music/1.mp3",
             'imgUrl' => "/songImg/domination.jpg"
         ]);
@@ -53,9 +58,33 @@ public function run() {
         DB::table('songs')->insert([
             'name' => "Nina",
             'genre' => "Jpop",
-            'artistId' => "1",
+            'artist_id' => "1",
             'url' => "/music/2.mp3",
             'imgUrl' => "/songImg/nina.jpg"
+        ]);
+    
+        DB::table('songs')->insert([
+            'name' => "When the party's over",
+            'genre' => "Pop",
+            'artist_id' => "2",
+            'url' => "/music/3.mp3",
+            'imgUrl' => "/songImg/party.jpg"
+        ]);
+    
+        DB::table('songs')->insert([
+            'name' => "Bad Guy",
+            'genre' => "Pop",
+            'artist_id' => "2",
+            'url' => "/music/4.mp3",
+            'imgUrl' => "/songImg/bad.jpg"
+        ]);
+    
+        DB::table('songs')->insert([
+            'name' => "Therefore I am",
+            'genre' => "Pop",
+            'artist_id' => "2",
+            'url' => "/music/5.mp3",
+            'imgUrl' => "/songImg/therefore.jpg"
         ]);
 
         for ($i = 1; $i <= 6; $i++) {
