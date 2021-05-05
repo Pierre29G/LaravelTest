@@ -1,0 +1,35 @@
+.login, .register {
+    .card {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-body {
+        text-align: center;
+
+        .form-group {
+            padding: 1rem 0 1rem 0;
+        }
+
+        .form-check {
+            text-align: left;
+            font-size: 14px;
+        }
+    }
+
+    .logo {
+        width: 10rem;
+        height: 10rem;
+        background-image: url('/images/logo.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+.login .logo {
+    margin: auto;
+}

@@ -20,6 +20,8 @@ Route::get('/', [FirstController::class, 'index']);
 
 Route::get('/article/{id}', [FirstController::class, 'article']);
 
+Route::get('/artist/{id}', [FirstController::class, 'artist']);
+
 Route::get("/photos/create", [FirstController::class, "create"])->middleware("auth");
 
 Route::post("/photos/store", [FirstController::class, "store"])->middleware("auth");
