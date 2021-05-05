@@ -95,3 +95,103 @@ button {
 .login .logo {
   margin: auto;
 }
+
+.nav-bar {
+  background-color: #1C1737;
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 93vw;
+}
+.nav-bar > a {
+  width: 25%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.nav-bar > a > div:first-child {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 9rem;
+  height: 9rem;
+}
+.nav-bar > a > div:last-child {
+  font-size: 26px;
+  color: #DB00C9;
+}
+.nav-bar > a:first-child > div:first-child {
+  background-image: url("/images/home.svg");
+}
+.nav-bar > a:nth-child(2) > div:first-child {
+  background-image: url("/images/lecteur.svg");
+}
+.nav-bar > a:nth-child(3) > div:first-child {
+  background-image: url("/images/coeur.svg");
+  height: 7rem;
+  width: 7rem;
+  padding-bottom: 30px;
+}
+.nav-bar > a:last-child > div:first-child {
+  background-image: url("/images/profil.svg");
+}
+
+.nav-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0 20px 0;
+}
+.nav-top .logo {
+  width: 16rem;
+  height: 16rem;
+  background-image: url("/images/logo.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.nav-top .search {
+  width: 3rem;
+  height: 3rem;
+  background-image: url("/images/loupe.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-content {
+  padding-bottom: 20rem;
+}
+.home-content h2 {
+  font-size: 60px;
+}
+.home-content .slick-slide {
+  height: auto;
+  padding: 0 40px 0 0;
+}
+.home-content .last-releases img,
+.home-content .favorites img {
+  width: 100%;
+  height: 35rem;
+}
+.home-content .last-releases a,
+.home-content .favorites a {
+  display: block;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+.home-content .last-releases h3,
+.home-content .favorites h3 {
+  color: #C2C2C2;
+  text-decoration: none;
+  font-size: 34px;
+  font-weight: normal;
+  margin: 20px 0 0 0;
+}

@@ -1,0 +1,118 @@
+.home {
+}
+
+.nav-bar {
+    background-color: $darkblue;
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 93vw;
+
+    > a {
+        width: 25%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        > div:first-child {
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 9rem;
+            height: 9rem;
+        }
+
+        > div:last-child {
+            font-size: 26px;
+            color: $pink;
+        }
+    }
+
+    > a:first-child > div:first-child {
+        background-image: url('/images/home.svg');
+    }
+
+    > a:nth-child(2) > div:first-child {
+        background-image: url('/images/lecteur.svg');
+    }
+
+    > a:nth-child(3) > div:first-child {
+        background-image: url('/images/coeur.svg');
+        height: 7rem;
+        width: 7rem;
+        padding-bottom: 30px;
+    }
+
+    > a:last-child > div:first-child {
+        background-image: url('/images/profil.svg');
+    }
+}
+
+.nav-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 20px 0;
+
+    .logo {
+        width: 16rem;
+        height: 16rem;
+        background-image: url('/images/logo.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .search {
+        width: 3rem;
+        height: 3rem;
+        background-image: url('/images/loupe.svg');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+
+.home-content {
+    padding-bottom: 20rem;
+
+    h2 {
+        font-size: 60px;
+    }
+
+    .slick-slide {
+        height: auto;
+        padding: 0 40px 0 0;
+    }
+
+    .last-releases,
+    .favorites {
+
+        img {
+            width: 100%;
+            height: 35rem;
+        }
+
+        a {
+            display: block;
+            font-size: 40px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        h3 {
+            color: $grey;
+            text-decoration: none;
+            font-size: 34px;
+            font-weight: normal;
+            margin: 20px 0 0 0;
+        }
+    }
+}
