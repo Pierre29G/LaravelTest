@@ -18,9 +18,15 @@ Route::get('/about', [FirstController::class, 'about']);
 
 Route::get('/', [FirstController::class, 'index']);
 
-Route::get('/article/{id}', [FirstController::class, 'article']);
+Route::get('/song/{id}', [FirstController::class, 'song']);
+
+Route::get('/playlist/{id}', [FirstController::class, 'playlistsingle']);
+
+Route::get('/playlist', [FirstController::class, 'playlist']);
 
 Route::get('/artist/{id}', [FirstController::class, 'artist']);
+
+Route::get('/amis/{id}', [FirstController::class, 'amis']);
 
 Route::get("/photos/create", [FirstController::class, "create"])->middleware("auth");
 

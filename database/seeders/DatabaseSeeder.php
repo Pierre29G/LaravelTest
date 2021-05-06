@@ -86,6 +86,40 @@ public function run() {
             'url' => "/music/5.mp3",
             'imgUrl' => "/songImg/therefore.jpg"
         ]);
+    
+        DB::table('playlists')->insert([
+            'name' => "Favoris",
+            'description' => "Cette playlist contient mes morceaux favoris !",
+            'user_id' => "3",
+            'imgUrl' => "/playImg/1.jpg"
+        ]);
+    
+        DB::table('playlists')->insert([
+            'name' => "Lofi",
+            'description' => "Lofi, hiphop, la musique du trvail à faire.",
+            'user_id' => "3",
+            'imgUrl' => "/playImg/2.jpg"
+        ]);
+    
+        DB::table('playlists')->insert([
+            'name' => "Exemple",
+            'description' => "Je suis un exemple de playlist",
+            'user_id' => "3",
+            'imgUrl' => "/playImg/3.jpg"
+        ]);
+    
+        DB::table('contents')->insert([
+            'playlist_id' => "3",
+            'song_id' => "1"
+        ]);
+        DB::table('contents')->insert([
+            'playlist_id' => "3",
+            'song_id' => "2"
+        ]);
+        DB::table('contents')->insert([
+            'playlist_id' => "3",
+            'song_id' => "4"
+        ]);
 
         for ($i = 1; $i <= 6; $i++) {
             DB::table('photos')->insert([

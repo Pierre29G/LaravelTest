@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Song;
 use App\Models\Artist;
+use App\Models\Playlist;
+use App\Models\Content;
+use App\Models\Connnexion;
 use Illuminate\Support\Facades\Auth;
 
 class FirstController extends Controller
@@ -22,36 +25,28 @@ class FirstController extends Controller
         return view("firstcontroller.artist", ["artist" => $artist]);
     }
     
-    public function about() {
-        return view("FirstController.about");
-    }
-
-    public function article($id) {
-        return "<h1>l'article avec l'id = $id</h1>";
+    public function song($id) {
+        $song = Song::findOrFail($id);
+        return view("firstcontroller.song", ["song" => $song]);
     }
     
-    public function create() {
-        return view("FirstController.create");
+    public function playlist() {
+        $playlist = \App\Models\Playlist::all();
+        return view("firstcontroller.playlist", ["playlist" => $playlist]);
     }
     
-    public function store(Request $request) {
-        $request->validate([
-            'title' => 'required|min:3|max:255',
-            'note' => 'numeric|min:0|max:20',
-            'image' => 'file|mimes:jpg,bmp,png'
-        ]);
-
-        $p = new Photo();
-        $p->title = $request->input("title");
-
-        $name = $request->file("image")->hashName();
-        $request->file("image")->move("images/uploads/".Auth::id(), $name);
-        $p->url = "/images/uploads/".Auth::id()."/$name";
-        $p->note = $request->input("note");
-        $p->user_id = Auth::id();
-        $p->save(); // INSERT .....
-        return redirect("/");
+    public function amis($id) {
+        $user = \App\Models\User::all();
+        $connexion = \App\Models\Connexion::all();
+        return view("firstcontroller.amis", ["connexion" => $connexion], ["user" => $user]);
     }
+    
+    public function playlistsingle($id) {
+        $content = \App\Models\Content::all();
+        $playlist = Playlist::findOrFail($id);
+        return view("firstcontroller.playlistsingle", ["playlist" => $playlist], ["content" => $content]);
+    }
+    
     
     public function user($id) {
         $user = User::findOrFail($id);

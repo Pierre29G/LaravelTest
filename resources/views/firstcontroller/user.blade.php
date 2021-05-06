@@ -3,8 +3,8 @@
 @section("content")
     <img src="{{$user->imgurl}}" alt="{{$user->name}}" />
     <h1>{{$user->name}}</h1>
-    <p>Follow {{$user->IFollowThem()->count()}} personnes</p>
-    <p>Followed by {{$user->theyFollowMe()->count()}} personnes</p>
+    <p>{{$user->IFollowThem()->count()}} abonnements</p>
+    <p>{{$user->theyFollowMe()->count()}} abonnés</p>
 
     @auth
         @if(Auth::id() != $user->id)
@@ -15,6 +15,8 @@
                 je ne le suis pas encore <a href="/changesuivi/{{$user->id}}">SUIVRE</a>
             @endif
 
+        @else
+            <p>{{$user->hasMany("App\Models\Playlist")->count()}} playlists</p>
         @endif
     @endauth
 
@@ -27,9 +29,9 @@
     @foreach($user->playlists as $p)
             <div>
             <img src="{{$p->imgurl}}" alt="{{$p->name}}" />
-            <span>{{$p->name}} -- {{$p->description}}</span>
+            <a href="/playlist/{{$p->id}}"><h3>{{$p->name}}</h3></a>
+            <span>{{$p->description}}</span>
             </div>
-
     @endforeach
 
 
